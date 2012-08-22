@@ -1,6 +1,5 @@
 class Player
   @init_play_list: (play_list) ->
-    console.log $('#jquery_jplayer_1')
     config = 
       jPlayer: "#jquery_jplayer_1"
       cssSelectorAncestor: "#jp_container_1"

@@ -4,29 +4,28 @@ window.app = $.sammy ->
 
 model = new Model
 
-app.get '#/', (context) ->
-  context.app.swap('Hello!')
+app.get '#/', ->
+  @app.swap('Hello!')
   if model.is_group_configured()
-    context.redirect('#/player')
+    @redirect('#/player')
   else
-    context.redirect('#/groups')
+    @redirect('#/groups')
 
-app.get '#/set_group', (context) ->
+app.get '#/set_group', ->
   model.set_gid @params.gid
-  context.redirect '#/'
+  @redirect '#/player'
 
-app.get '#/groups', (context) ->
-  groups = model.groups()
-  context.partial('/templates/groups.haml', groups: groups)
+app.get '#/groups', ->
+  model.init_groups (model) =>
+    @partial('/templates/groups.haml', groups: model.groups())
+    
 
-app.get '#/player', (context) ->
-  audios = model.audios()
-  context.partial('/templates/player.haml', audios: audios).then ->
-    Player.init_play_list(audios)
+app.get '#/player', ->
+  model.init_audios (model) =>
+    @partial('/templates/player.haml', audios: model.audios()).then ->
+      Player.init_play_list(model.audios())
 
-
-$ ->
-  app.run('#/')
-
-
-
+if VK?
+  VK.init ->
+    app.clearTemplateCache()
+    app.run('#/')

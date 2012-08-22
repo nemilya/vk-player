@@ -11,14 +11,15 @@
     %script{ :src => "/js/sammy.haml.js", :type => "text/javascript" }
     %script{ :src => "/js/coffee-script.js", :type => "text/javascript" }
 
-    - # %script{ :src => "http://vk.com/js/api/xd_connection.js?2", :type => "text/javascript" }
+    - if VK
+      %script{ :src => "http://vk.com/js/api/xd_connection.js?2", :type => "text/javascript" }
 
     %script{ :src => "/js/jquery.jplayer.min.js", :type => "text/javascript" }
     %script{ :src => "/js/jplayer.playlist.min.js", :type => "text/javascript" }
 
-    %script{ :src => "/coffee/player.coffee", :type => "text/coffeescript" }
-    %script{ :src => "/coffee/model.coffee", :type => "text/coffeescript" }
-    %script{ :src => "/coffee/app.coffee", :type => "text/coffeescript" }
+    %script{ :src => "/coffee/player.coffee#{@ts}", :type => "text/coffeescript" }
+    %script{ :src => "/coffee/model.coffee#{@ts}", :type => "text/coffeescript" }
+    %script{ :src => "/coffee/app.coffee#{@ts}", :type => "text/coffeescript" }
     
   %body
     = yield
