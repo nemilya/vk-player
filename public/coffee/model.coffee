@@ -35,7 +35,6 @@ class Model
       params = 
         gid: @get_gid()
         count: 7
-      console.log params
       VK.api 'audio.get', params, (data) =>
         if data.response
           @_audios = []
