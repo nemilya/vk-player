@@ -29,3 +29,6 @@ if VK?
   VK.init ->
     app.clearTemplateCache()
     app.run('#/')
+else
+  app.clearTemplateCache()
+  app.run('#/')

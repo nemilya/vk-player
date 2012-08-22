@@ -22,7 +22,7 @@ class Model
             @_groups.push { gid: group.gid, title: group.name }
         callback(@)
     else
-      @groups = [{title: 'title1..', gid: 1}, {title: 'title2..', gid: 2}]
+      @_groups = [{title: 'title1..', gid: 1}, {title: 'title2..', gid: 2}]
       callback(@)
 
 
@@ -46,7 +46,7 @@ class Model
             @_audios.push(item)
           callback(@)
     else
-      @audios = [{title: 'test', mp3: '/mp3/test.mp3'}, {title: 'test2', mp3: '/mp3/test.mp3'}]
+      @_audios = [{title: 'test', mp3: '/mp3/test.mp3'}, {title: 'test2', mp3: '/mp3/test.mp3'}]
       callback(@)
 
 root = this ? this : exports

@@ -2,7 +2,12 @@ require 'rubygems'
 require 'haml'
 require 'sinatra'
 
+# remote access to VK.api - work within IFrame
 VK = true
+
+# or local for direct URL test
+# VK = false
+
 
 before do
   headers 'X-Frame-Options'=> 'GOFORIT'
