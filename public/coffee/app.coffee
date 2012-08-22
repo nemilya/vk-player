@@ -21,7 +21,9 @@ app.get '#/groups', (context) ->
 
 app.get '#/player', (context) ->
   audios = model.audios()
-  context.partial('/templates/player.haml', audios: audios)
+  context.partial('/templates/player.haml', audios: audios).then ->
+    Player.init_play_list(audios)
+
 
 $ ->
   app.run('#/')
