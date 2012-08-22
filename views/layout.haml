@@ -2,5 +2,15 @@
 %html
   %head
     %title CoffeeScript Sammyjs app
+    %link{  :href => "/css/bootstrap.css", :rel => "stylesheet", :type => "text/css" }
+    %script{ :src => "/js/jquery.js", :type => "text/javascript" }
+    %script{ :src => "/js/haml.js", :type => "text/javascript" }
+    %script{ :src => "/js/sammy.js", :type => "text/javascript" }
+    %script{ :src => "/js/sammy.haml.js", :type => "text/javascript" }
+    %script{ :src => "/js/coffee-script.js", :type => "text/javascript" }
+
+    %script{ :src => "/coffee/model.coffee", :type => "text/coffeescript" }
+    %script{ :src => "/coffee/app.coffee", :type => "text/coffeescript" }
+    
   %body
     = yield
