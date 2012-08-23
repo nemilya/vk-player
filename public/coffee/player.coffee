@@ -7,7 +7,7 @@ class Player
     params = 
       playlistOptions:
         autoPlay: true
-      swfPath: "js",
+      swfPath: "/js",
       supplied: "mp3",
       wmode: "window"
 

@@ -2,6 +2,12 @@ class Model
   is_group_configured: ->
     @get_gid()?
 
+  init_info_by_gid: (gid, callback) ->
+    @set_gid(gid)
+    console.log callback
+    @init_audios_cnt (callback) =>
+      @init_audios(callback)
+  
   get_gid: ->
     @gid
 
@@ -10,6 +16,22 @@ class Model
 
   groups: ->
     @_groups
+
+  audios_cnt: ->
+    @_audios_cnt
+
+  init_audios_cnt: (callback) ->
+    if VK?
+      console.log '!!!'
+      console.log callback
+      VK.api 'audio.getCount', {oid: -1 * @get_gid()}, (data) =>
+        if data.response
+          console.log data.response
+        console.log callback
+        callback(@)
+    else
+      @_audios_cnt = 7
+      callback(@)
 
   init_groups: (callback) ->
     if VK?
