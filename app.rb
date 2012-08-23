@@ -21,3 +21,9 @@ end
 get '/' do
   haml :index
 end
+
+# some cache issues
+get '/:name.haml' do
+  file_path = "public/templates/#{params[:name]}.haml"
+  File.open(file_path).read if File.exists?(file_path)
+end

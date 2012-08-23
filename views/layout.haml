@@ -2,24 +2,22 @@
 %html
   %head
     %title CoffeeScript Sammyjs app
-    %link{  :href => "/css/bootstrap.css", :rel => "stylesheet", :type => "text/css" }
-    %link{  :href => "/css/jplayer.skin/blue.monday/jplayer.blue.monday.css", :rel => "stylesheet", :type => "text/css" }
+    %link{  :href => "/assets/css/bootstrap.css", :rel => "stylesheet", :type => "text/css" }
+    %link{  :href => "/assets/css/jplayer.skin/blue.monday/jplayer.blue.monday.css", :rel => "stylesheet", :type => "text/css" }
 
-    %script{ :src => "/js/jquery.js", :type => "text/javascript" }
-    %script{ :src => "/js/haml.js", :type => "text/javascript" }
-    %script{ :src => "/js/sammy.js", :type => "text/javascript" }
-    %script{ :src => "/js/sammy.haml.js", :type => "text/javascript" }
-    %script{ :src => "/js/coffee-script.js", :type => "text/javascript" }
+    - js_libs = %w(jquery haml sammy sammy.haml coffee-script)
+    - js_libs.each do |lib|
+      %script{ :src => "/assets/js/#{lib}.js", :type => "text/javascript" }
 
     - if VK
       %script{ :src => "http://vk.com/js/api/xd_connection.js?2", :type => "text/javascript" }
 
-    %script{ :src => "/js/jquery.jplayer.min.js", :type => "text/javascript" }
-    %script{ :src => "/js/jplayer.playlist.min.js", :type => "text/javascript" }
+    %script{ :src => "/assets/js/jquery.jplayer.min.js", :type => "text/javascript" }
+    %script{ :src => "/assets/js/jplayer.playlist.min.js", :type => "text/javascript" }
 
-    %script{ :src => "/coffee/player.coffee#{@ts}", :type => "text/coffeescript" }
-    %script{ :src => "/coffee/model.coffee#{@ts}", :type => "text/coffeescript" }
-    %script{ :src => "/coffee/app.coffee#{@ts}", :type => "text/coffeescript" }
+    %script{ :src => "/app/player.coffee#{@ts}", :type => "text/coffeescript" }
+    %script{ :src => "/app/model.coffee#{@ts}", :type => "text/coffeescript" }
+    %script{ :src => "/app/app.coffee#{@ts}", :type => "text/coffeescript" }
     
   %body
     = yield
