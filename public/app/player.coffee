@@ -7,8 +7,8 @@ class Player
     params = 
       playlistOptions:
         autoPlay: true
-      swfPath: "/assets/js",
       supplied: "mp3",
+      swfPath: "/assets/js",
       wmode: "window"
 
     new jPlayerPlaylist(config, play_list, params)

@@ -68,8 +68,9 @@ class Model
           @_audios = []
           for m in data.response
             item = {}
-            item.title = m.artist + ' - ' + m.title
-            item.mp3   = m.url
+            item.artist = m.artist
+            item.title  = m.title
+            item.mp3    = m.url
             @_audios.push(item)
           callback()
     else
